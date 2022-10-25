@@ -1,35 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/UserContext';
+import logo from '../../logo.jpg'
+import './Header.css'
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext)
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                    <Link className='navbar-brand' to="/"><img className='logo-img' src={logo} alt="" />Bizon's Learning</Link>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="#features">Features</Nav.Link>
-                            <Nav.Link href="#pricing">Pricing</Nav.Link>
-                            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">
-                                    Another action
-                                </NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">
-                                    Separated link
-                                </NavDropdown.Item>
-                            </NavDropdown>
+                            <Link className='nav-link' to="/">Home</Link>
+                            <Link className='nav-link' to="/courses">Courses</Link>
+                            <Link className='nav-link' to="/blog">Blog</Link>
+
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">More deets</Nav.Link>
-                            <Nav.Link eventKey={2} href="#memes">
+                            <Link className='nav-link' to="/login">Login</Link>
+                            <Nav.Link>
                                 Dank memes
                             </Nav.Link>
                         </Nav>
