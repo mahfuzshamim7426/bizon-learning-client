@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import Blog from './components/Blog/Blog';
 import Courses from './components/Courses/Courses';
+import Faq from './components/Faq/Faq';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import SignUp from './components/SignUp/SignUp';
@@ -33,6 +34,10 @@ function App() {
         {
           path: 'blog',
           element: <Blog></Blog>
+        },
+        {
+          path: 'faq',
+          element: <Faq></Faq>
         }
 
       ]
