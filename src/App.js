@@ -5,7 +5,9 @@ import Courses from './components/Courses/Courses';
 import Faq from './components/Faq/Faq';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
+import Privacy from './components/Privacy/Privacy';
 import SignUp from './components/SignUp/SignUp';
+import Terms from './components/Terms/Terms';
 import Main from './layout/Main';
 
 function App() {
@@ -38,6 +40,14 @@ function App() {
         {
           path: 'faq',
           element: <Faq></Faq>
+        },
+        {
+          path: 'terms',
+          element: <Terms></Terms>
+        },
+        {
+          path: 'privacy',
+          element: <Privacy></Privacy>
         }
 
       ]
