@@ -5,6 +5,7 @@ import Courses from './components/Courses/Courses';
 import Faq from './components/Faq/Faq';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
+import NotFoundPage from './components/NotFoundPage/NotFoundPage';
 import Privacy from './components/Privacy/Privacy';
 import SignUp from './components/SignUp/SignUp';
 import Terms from './components/Terms/Terms';
@@ -48,6 +49,10 @@ function App() {
         {
           path: 'privacy',
           element: <Privacy></Privacy>
+        },
+        {
+          path: '*',
+          element: <NotFoundPage></NotFoundPage>
         }
 
       ]
