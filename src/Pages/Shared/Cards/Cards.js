@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
 
-const Cards = () => {
+const Cards = ({ course }) => {
     return (
         <div className='container mt-5'>
             <div>
@@ -13,13 +13,12 @@ const Cards = () => {
                     {Array.from({ length: 6 }).map((_, index) => (
                         <Col key={index}>
                             <Card>
-                                <Card.Img variant="top" src="holder.js/100px160" />
+                                <Card.Img variant="top" src={course.thumbnail_url} />
                                 <Card.Body>
-                                    <Card.Title>Card title</Card.Title>
+                                    <Card.Title>{course.title}</Card.Title>
                                     <Card.Text>
-                                        This is a longer card with supporting text below as a natural
-                                        lead-in to additional content. This content is a little bit
-                                        longer.
+                                        {course.details}
+
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
