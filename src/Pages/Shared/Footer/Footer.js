@@ -2,11 +2,10 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import logo from '../../logo.jpg';
+import logo from '../../../logo.jpg';
 import './Footer.css'
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaInstagram, FaLinkedin, FaPinterest, FaTwitter } from 'react-icons/fa';
-import Terms from '../Terms/Terms';
 
 const Footer = () => {
     return (

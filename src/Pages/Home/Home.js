@@ -1,6 +1,7 @@
 import React from 'react';
-import Cards from '../Cards/Cards';
-import Slider from '../Slider/Slider';
+import Cards from '../Shared/Cards/Cards';
+import Slider from '../Shared/Slider/Slider';
+
 
 const Home = () => {
     return (

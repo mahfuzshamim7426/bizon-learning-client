@@ -3,8 +3,8 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../context/UserContext';
-import logo from '../../logo.jpg';
+import { AuthContext } from '../../../context/UserContext';
+import logo from '../../../logo.jpg';
 import './Header.css'
 const Header = () => {
     const { user, logOut } = useContext(AuthContext)

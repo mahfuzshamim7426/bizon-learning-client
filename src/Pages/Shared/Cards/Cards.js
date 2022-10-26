@@ -10,8 +10,8 @@ const Cards = () => {
             <div>
                 <h2 className='text-center fs-3 m-3'>Courses</h2>
                 <Row xs={1} md={3} className="g-4">
-                    {Array.from({ length: 6 }).map((_, idx) => (
-                        <Col>
+                    {Array.from({ length: 6 }).map((_, index) => (
+                        <Col key={index}>
                             <Card>
                                 <Card.Img variant="top" src="holder.js/100px160" />
                                 <Card.Body>

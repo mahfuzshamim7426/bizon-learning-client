@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../context/UserContext';
+import { AuthContext } from '../../../context/UserContext';
+
 import './SignUp.css';
 
 const SignUp = () => {
