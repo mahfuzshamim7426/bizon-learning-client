@@ -12,6 +12,8 @@ const CourseSectiuon = ({ allCourse }) => {
                         allCourse.map((course, index) => (
                             <Col key={index}>
                                 <CourseCard course={course} />
+
+
                             </Col>
                         ))}
                 </Row>

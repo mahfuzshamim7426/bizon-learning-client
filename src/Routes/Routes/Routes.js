@@ -8,6 +8,7 @@ import Login from '../../Pages/Login/Login/Login';
 import SignUp from '../../Pages/Login/SignUp/SignUp';
 import NotFoundPage from '../../Pages/NotFoundPage/NotFoundPage';
 import Privacy from '../../Pages/Privacy/Privacy';
+import SingleCourse from '../../Pages/Shared/SignleCourse/SingleCourse';
 import Terms from '../../Pages/Terms/Terms';
 
 export const router = createBrowserRouter([
@@ -32,6 +33,11 @@ export const router = createBrowserRouter([
                 path: 'courses',
                 loader: () => fetch('http://localhost:5000/courses'),
                 element: <Courses></Courses>
+            },
+            {
+                path: 'course/:course_id',
+                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.course_id}`),
+                element: <SingleCourse></SingleCourse>
             },
             {
                 path: 'blog',

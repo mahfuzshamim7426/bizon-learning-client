@@ -1,14 +1,15 @@
 import React, { useContext } from 'react';
+import { Button, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../../context/UserContext';
-
+import { AuthContext } from '../../../context/AuthProvider';
+import { FaGoogle } from 'react-icons/fa';
 import './Login.css';
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
-    const navigate = useNavigate();
-    const location = useLocation();
-    const from = location.state?.from?.pathname || '/'
+    const { user, signIn, signInWithGoogle } = useContext(AuthContext);
+    // const navigate = useNavigate();
+    // const location = useLocation();
+    // const from = location.state?.from?.pathname || '/'
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -22,7 +23,15 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
-                navigate(from, { replace: true })
+                // navigate(from, { replace: true })
+            })
+            .catch(error => console.error(error));
+    }
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
             })
             .catch(error => console.error(error));
     }
@@ -30,18 +39,27 @@ const Login = () => {
     return (
         <div className='form-container'>
             <h2 className='form-title'>Login</h2>
-            <form onSubmit={handleSubmit}>
-                <div className="form-control">
-                    <label htmlFor="email">Email</label>
-                    <input type="email" name="email" required />
-                </div>
-                <div className="form-control">
-                    <label htmlFor="password">Password</label>
-                    <input type="password" name="password" required />
-                </div>
-                <input className='btn-submit' type="submit" value="Login" />
-            </form>
-            <p>New to ema john <Link to='/signup'>Create a New Account</Link></p>
+            <Form onSubmit={handleSubmit} className='form-items-container'>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control className='form-item' type="email" placeholder="Enter email" />
+
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control className='form-item' type="password" placeholder="Password" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                    <Form.Check type="checkbox" label="Check me out" />
+                </Form.Group>
+                <Button variant="primary" type="submit">
+                    Submit
+                </Button>
+            </Form>
+            <p>Don't Have an Account? <Link to='/signup'>Create a New Account</Link></p>
+            <br />
+            <button onClick={handleGoogleSignIn} className="btn btn-outline btn-success">{FaGoogle} Google</button>
         </div>
     );
 };

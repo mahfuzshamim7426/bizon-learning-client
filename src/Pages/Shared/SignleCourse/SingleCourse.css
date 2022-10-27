@@ -1,0 +1,16 @@
+.course-details .single-course-container {
+
+    max-width: 400px;
+}
+
+.single-course-container :hover {
+    border: 4px solid rgb(23, 123, 253);
+}
+
+.course-details .page-title {
+    background-color: rgb(234, 199, 243);
+
+
+}
+
+.course-image {}
