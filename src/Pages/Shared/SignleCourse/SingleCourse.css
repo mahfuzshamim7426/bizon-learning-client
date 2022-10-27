@@ -10,7 +10,24 @@
 .course-details .page-title {
     background-color: rgb(234, 199, 243);
 
+}
+
+.premium-btn-body {
+    display: flex;
+    justify-content: center;
 
 }
 
-.course-image {}
+.premium-btn {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(113, 89, 248);
+    border: 1px solid black;
+    color: white;
+}
+
+.premium-btn:hover {
+    background-color: rgb(26, 245, 227);
+    color: black;
+}

@@ -7,6 +7,7 @@ import Home from '../../Pages/Home/Home';
 import Login from '../../Pages/Login/Login/Login';
 import SignUp from '../../Pages/Login/SignUp/SignUp';
 import NotFoundPage from '../../Pages/NotFoundPage/NotFoundPage';
+import PremiumAccess from '../../Pages/PremiumAccess/PremiumAccess';
 import Privacy from '../../Pages/Privacy/Privacy';
 import SingleCourse from '../../Pages/Shared/SignleCourse/SingleCourse';
 import Terms from '../../Pages/Terms/Terms';
@@ -38,6 +39,11 @@ export const router = createBrowserRouter([
                 path: 'course/:course_id',
                 loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.course_id}`),
                 element: <SingleCourse></SingleCourse>
+            },
+            {
+                path: 'premium/:course_id',
+                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.course_id}`),
+                element: <PremiumAccess></PremiumAccess>
             },
             {
                 path: 'blog',

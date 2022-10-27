@@ -1,11 +1,10 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import './SingleCourse.css'
 
 const SingleCourse = () => {
     const singleCourse = useLoaderData()
-    console.log('singleCourse', singleCourse)
 
     return (
         <div className='course-details'>
@@ -26,6 +25,10 @@ const SingleCourse = () => {
                         </Card.Body>
                     </Card>
                 </div>
+            </div>
+            <div className='premium-btn-body'>
+                <Link to={`/premium/${singleCourse._id}`}><button>Get Premium Access</button></Link>
+
             </div>
         </div>
     );
