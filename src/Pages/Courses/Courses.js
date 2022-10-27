@@ -1,13 +1,22 @@
 import React from 'react';
+import { Col, Row } from 'react-bootstrap';
+import { useLoaderData } from 'react-router-dom';
+import CourseSectiuon from '../Shared/CourseSection/CourseSectiuon';
+import './Courses.css'
+
 
 
 const Courses = () => {
-
+    const allCourse = useLoaderData()
     return (
-        <div>
-            <h2>This is Courses Page</h2>
+        <Row>
+            <Col xs={3} className='left-side'>
 
-        </div>
+            </Col>
+            <Col xs={8}>
+                <CourseSectiuon allCourse={allCourse} />
+            </Col>
+        </Row>
     );
 };
 

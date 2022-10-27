@@ -1,7 +1,7 @@
 import React from 'react';
-import Cards from '../Shared/Cards/Cards';
 import Slider from '../Shared/Slider/Slider';
 import { useLoaderData } from 'react-router-dom';
+import CourseSectiuon from '../Shared/CourseSection/CourseSectiuon';
 
 
 
@@ -10,13 +10,7 @@ const Home = () => {
     return (
         <div>
             <Slider></Slider>
-            {
-                allCourse.map(course => <Cards
-                    key={course._id}
-                    course={course}
-                ></Cards>
-                )
-            }
+            <CourseSectiuon allCourse={allCourse} />
 
         </div>
     );
