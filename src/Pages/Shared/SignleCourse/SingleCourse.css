@@ -4,7 +4,7 @@
 }
 
 .single-course-container :hover {
-    border: 4px solid rgb(23, 123, 253);
+    /* border: 4px solid rgb(23, 123, 253); */
 }
 
 .course-details .page-title {
@@ -30,4 +30,13 @@
 .premium-btn:hover {
     background-color: rgb(26, 245, 227);
     color: black;
+}
+
+.print-box {
+    text-align: center;
+
+}
+
+.print-area {
+    padding: 40px 20px;
 }

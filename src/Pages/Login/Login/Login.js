@@ -2,14 +2,14 @@ import React, { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
-import { FaGoogle } from 'react-icons/fa';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 import './Login.css';
 
 const Login = () => {
-    const { user, signIn, signInWithGoogle } = useContext(AuthContext);
-    // const navigate = useNavigate();
-    // const location = useLocation();
-    // const from = location.state?.from?.pathname || '/'
+    const { user, signIn, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/'
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -23,7 +23,8 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
-                // navigate(from, { replace: true })
+                navigate(from, { replace: true })
+                // navigate('/')
             })
             .catch(error => console.error(error));
     }
@@ -31,7 +32,20 @@ const Login = () => {
         signInWithGoogle()
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
+                // navigate('/')
+                navigate(from, { replace: true })
+
+            })
+            .catch(error => console.error(error));
+    }
+    const handleGithubSignIn = () => {
+        signInWithGithub()
+            .then(result => {
+                const user = result.user;
+                // console.log(user);
+                // navigate('/')
+                navigate(from, { replace: true })
             })
             .catch(error => console.error(error));
     }
@@ -57,9 +71,10 @@ const Login = () => {
                     Submit
                 </Button>
             </Form>
-            <p>Don't Have an Account? <Link to='/signup'>Create a New Account</Link></p>
             <br />
-            <button onClick={handleGoogleSignIn} className="btn btn-outline btn-success">{FaGoogle} Google</button>
+            <p>Don't Have an Account? <Link to='/signup'>Create a New Account</Link></p>
+            <button onClick={handleGoogleSignIn} className="btn btn-outline btn-success"><div className='d-flex align-items-center'><FaGoogle /><div className='ms-2'>Google Login</div></div></button>
+            <button onClick={handleGithubSignIn} className="btn btn-outline btn-dark ms-2"><div className='d-flex align-items-center'><FaGithub /><div className='ms-2'>GitHub Login</div></div></button>
         </div>
     );
 };

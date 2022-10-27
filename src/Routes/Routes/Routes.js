@@ -11,6 +11,7 @@ import PremiumAccess from '../../Pages/PremiumAccess/PremiumAccess';
 import Privacy from '../../Pages/Privacy/Privacy';
 import SingleCourse from '../../Pages/Shared/SignleCourse/SingleCourse';
 import Terms from '../../Pages/Terms/Terms';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
 export const router = createBrowserRouter([
     {
@@ -19,7 +20,7 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                loader: () => fetch('http://localhost:5000/courses'),
+                loader: () => fetch('https://bizon-learning-server.vercel.app/courses'),
                 element: <Home></Home>
             },
             {
@@ -32,18 +33,18 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'courses',
-                loader: () => fetch('http://localhost:5000/courses'),
+                loader: () => fetch('https://bizon-learning-server.vercel.app/courses'),
                 element: <Courses></Courses>
             },
             {
                 path: 'course/:course_id',
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.course_id}`),
+                loader: ({ params }) => fetch(`https://bizon-learning-server.vercel.app/courses/${params.course_id}`),
                 element: <SingleCourse></SingleCourse>
             },
             {
                 path: 'premium/:course_id',
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.course_id}`),
-                element: <PremiumAccess></PremiumAccess>
+                loader: ({ params }) => fetch(`https://bizon-learning-server.vercel.app/courses/${params.course_id}`),
+                element: <PrivateRoute><PremiumAccess></PremiumAccess></PrivateRoute>
             },
             {
                 path: 'blog',
